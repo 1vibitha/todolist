@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="eng">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+
+    <title>task</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">ToDos list</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="/">home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/task">task</a>
+              </li>
+
+            <form class="d-flex" role="search">
+              <input class="form-control  me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container my-2">
+        <h2 class="text-center" py-3>ToDos list -Tasks</h2>
+        <table class="table" >
+            <thead>
+              <tr>
+                <th scope="col">slno</th>
+                <th scope="col">task title</th>
+                <th scope="col">task description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for tasks in task %}
+              <tr>
+                <th scope="col">{{forloop.counter}}</th>
+                <th scope="col">{{tasks.tasktitle}}</th>
+                <th scope="col">{{tasks.taskdesc}}</th>
+                <th>
+                  <a href=""><button type"submit" class="btn btn-danger md-sm"><i class="material-icons">&#xe872;</i></button></a>
+                  <a href="{% url 'doupdate' tasks.id %}"><button type"submit" class="btn btn-sucess md-sm">update</button></a>
+                </th>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+      <footer>
+        <p class="text-center bg-dark text-light fixed-bottom my=0">
+          copyright &copy; 2020 | All rigths reserved
+        </p>
+      </footer>
+     
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
